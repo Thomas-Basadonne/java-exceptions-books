@@ -22,29 +22,31 @@ public class LibraryCatalog {
 
 
         for (int i = 0; i < numberOfBooks; i++) {
-            Book book = new Book();
+            System.out.println("\nInserisci i dati del libro " + (i + 1) + ":");
 
             try {
-                System.out.println("\nInserisci i dati del libro " + (i + 1) + ":");
                 System.out.print("Titolo: ");
-                book.setTitle(scanner.nextLine());
+                String title = scanner.nextLine();
 
+                // Controllo eccezione per il numero di pagine
                 System.out.print("Numero di pagine: ");
-                book.setNumberOfPages(scanner.nextInt());
+                int numberOfPages = scanner.nextInt();
                 scanner.nextLine();
 
                 System.out.print("Autore: ");
-                book.setAuthor(scanner.nextLine());
+                String author = scanner.nextLine();
 
                 System.out.print("Editore: ");
-                book.setPublisher(scanner.nextLine());
+                String publisher = scanner.nextLine();
 
+                Book book = new Book(title, numberOfPages, author, publisher);
                 books[i] = book;
             } catch (Exception e) {
                 System.out.println("Errore: " + e.getMessage());
                 i--; // Ripeti l'inserimento del libro
             }
         }
+
 
         System.out.println("\nCatalogo di libri:");
 
